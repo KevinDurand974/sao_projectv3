@@ -1,5 +1,5 @@
-import { useBearsStore, type BearsStore } from "./bears";
+import { useMenuStore, type MenuStore } from "./menu";
 
-export const useStore = create<BearsStore>()((...set) => ({
-	...useBearsStore(...set),
+export const useStore = create<MenuStore>()((...set) => ({
+	...useMenuStore(...set),
 }));
