@@ -40,8 +40,6 @@ export default defineConfig({
 
 				const selector = toEscapedSelector(rawSelector);
 
-				console.log(selector, color);
-
 				return `${selector} {
 					background: linear-gradient(to bottom, transparent 0%, ${color} ${start}, ${color} ${end}, transparent 100%);
 				}`;
