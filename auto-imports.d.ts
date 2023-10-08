@@ -6,9 +6,13 @@
 export {}
 declare global {
   const AnimatePresence: typeof import('framer-motion')['AnimatePresence']
+  const IconPhChatCircleDotsDuotone: typeof import('~icons/ph/chat-circle-dots-duotone.jsx')['default']
+  const IconPhGearDuotone: typeof import('~icons/ph/gear-duotone.jsx')['default']
   const IconPhListFill: typeof import('~icons/ph/list-fill.jsx')['default']
+  const IconPhPlayDuotone: typeof import('~icons/ph/play-duotone.jsx')['default']
   const IconPhXBold: typeof import('~icons/ph/x-bold.jsx')['default']
   const Menu: typeof import('./src/components/Menu')['default']
+  const PrimaryMenu: typeof import('./src/components/PrimaryMenu')['default']
   const RoundButton: typeof import('./src/components/RoundButton')['default']
   const clsx: typeof import('clsx')['clsx']
   const combine: typeof import('zustand/middleware')['combine']

@@ -3,17 +3,19 @@ import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 type Props = PropsWithChildren<{
 	className?: string;
 	ring?: boolean;
+	selected?: boolean;
 }> &
 	ButtonHTMLAttributes<HTMLButtonElement>;
 
-const RoundButton = ({ children, className, ring = false, onClick }: Props) => {
+const RoundButton = ({ children, className, ring = false, onClick, selected }: Props) => {
 	return (
 		<button
 			onClick={onClick}
 			type="button"
 			className={clsx(
 				className,
-				"min-w-4 min-h-4 rounded-full fill-base stroke-transparent text-textbase drop-shadow-simple drop-shadow-color-transparent transition-all duration-300 hover:(fill-accent text-textaccent drop-shadow-color-accent)"
+				"min-w-4 min-h-4 rounded-full fill-base stroke-transparent text-textbase drop-shadow-simple drop-shadow-color-transparent transition-all duration-300 hover:(fill-accent text-textaccent drop-shadow-color-accent)",
+				{ "!fill-accent !text-textaccent !drop-shadow-color-accent": selected }
 			)}>
 			{!ring ? (
 				<svg
