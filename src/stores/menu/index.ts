@@ -1,21 +1,19 @@
 import type { StateCreator } from "zustand";
 
 type State = {
-	isOpen: boolean;
+	isMenuOpen: boolean;
 };
 
 type Action = {
-	open: () => void;
-	close: () => void;
+	toggleMenu: () => void;
 };
 
 export type MenuStore = State & Action;
 
-const initialState: State = { isOpen: false };
+const initialState: State = { isMenuOpen: false };
 
 export const useMenuStore: StateCreator<MenuStore, [], [], MenuStore> = (set) => ({
 	...initialState,
 
-	open: () => set(() => ({ isOpen: true })),
-	close: () => set(() => ({ isOpen: false })),
+	toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
 });
