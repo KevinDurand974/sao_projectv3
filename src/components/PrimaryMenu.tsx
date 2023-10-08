@@ -10,7 +10,11 @@ const menuVariants = {
 };
 
 const childDefault = {
-	animate: { y: 0, opacity: 1, transition: { type: "tween", ease: "easeOut" } },
+	animate: {
+		y: 0,
+		opacity: 1,
+		transition: { type: "tween", ease: "easeOut" },
+	},
 	exit: { x: -50, opacity: 0, transition: { type: "tween", ease: "easeIn" } },
 };
 
@@ -51,26 +55,44 @@ const PrimaryMenu = ({ className }: Props) => {
 					exit="exit"
 					onAnimationComplete={handleEndAnimation}
 					className={clsx(className, "flex flex-col gap-6 origin-top")}>
-					<motion.div variants={messageVariants}>
-						<RoundButton ring className="size-18" selected={ready && selected === 1} onClick={() => select(1)}>
+					<motion.div variants={messageVariants} className="relative">
+						<RoundButton ring className="size-24" selected={ready && selected === 1} onClick={() => select(1)}>
 							<span>
-								<IconPhChatCircleDotsDuotone className="size-8" />
+								<IconPhChatCircleDotsDuotone className="size-10" />
 							</span>
 						</RoundButton>
+
+						<PrimaryItems active={ready && selected === 1}>
+							<PrimaryItem className="w-68" />
+							<PrimaryItem active className="w-68" />
+							<PrimaryItem className="w-68" />
+						</PrimaryItems>
 					</motion.div>
-					<motion.div variants={playerVariants}>
-						<RoundButton ring className="size-18" selected={ready && selected === 2} onClick={() => select(2)}>
+					<motion.div variants={playerVariants} className="relative">
+						<RoundButton ring className="size-24" selected={ready && selected === 2} onClick={() => select(2)}>
 							<span>
-								<IconPhPlayDuotone className="size-8" />
+								<IconPhPlayDuotone className="size-10" />
 							</span>
 						</RoundButton>
+
+						<SecondaryItems active={ready && selected === 2}>
+							<SecondaryItem />
+							<SecondaryItem active />
+							<SecondaryItem />
+						</SecondaryItems>
 					</motion.div>
-					<motion.div variants={settingsVariants}>
-						<RoundButton ring className="size-18" selected={ready && selected === 3} onClick={() => select(3)}>
+					<motion.div variants={settingsVariants} className="relative">
+						<RoundButton ring className="size-24" selected={ready && selected === 3} onClick={() => select(3)}>
 							<span>
-								<IconPhGearDuotone className="size-8" />
+								<IconPhGearDuotone className="size-10" />
 							</span>
 						</RoundButton>
+
+						<SecondaryItems active={ready && selected === 3}>
+							<SecondaryItem />
+							<SecondaryItem active />
+							<SecondaryItem />
+						</SecondaryItems>
 					</motion.div>
 				</motion.div>
 			)}
