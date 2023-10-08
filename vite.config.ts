@@ -14,7 +14,7 @@ export default defineConfig({
 				{
 					zustand: ["create"],
 					"zustand/middleware": ["combine"],
-					"framer-motion": ["motion"],
+					"framer-motion": ["motion", "AnimatePresence"],
 					clsx: ["clsx"],
 				},
 			],
